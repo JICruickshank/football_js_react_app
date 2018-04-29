@@ -1,5 +1,6 @@
 ul {
   margin: 0;
+  padding: 0;
 }
 
 li, .navlink {
@@ -7,13 +8,14 @@ li, .navlink {
   color: white;
   list-style-type: none;
   text-decoration: none;
-  margin: 0 40px 0 40px;
+  margin: 0 25px 0 25px;
 }
 
 .navbar {
-  text-align: center;
+  justify-content: space-between;
   font-size: 22px;
   font-weight: 200;
+  margin-left: 135px;
 }
 
 .navlink:hover {
