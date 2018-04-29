@@ -1,0 +1,9 @@
+body {
+  font-family: 'Open Sans', cursive;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/images/background11.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin: 0;
+  color: white;
+}

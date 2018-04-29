@@ -1,0 +1,39 @@
+ul {
+  margin: 0;
+}
+
+li, .navlink {
+  display: inline-flex;
+  color: white;
+  list-style-type: none;
+  text-decoration: none;
+  margin: 0 40px 0 40px;
+}
+
+.navbar {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 200;
+}
+
+.navlink:hover {
+	animation: bounce 1s;
+}
+
+
+@keyframes bounce {
+	0%, 20%, 60%, 100% {
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+	}
+
+	40% {
+		-webkit-transform: translateY(-20px);
+		transform: translateY(-20px);
+	}
+
+	80% {
+		-webkit-transform: translateY(-10px);
+		transform: translateY(-10px);
+	}
+}
