@@ -3,6 +3,7 @@ import Home from "./Home";
 import League from "./League";
 import Fixtures from "./Fixtures";
 import Favourites from "./Favourites";
+import Header from "./Header";
 import Navbar from "./Navbar";
 import {BrowserRouter as Router, Route} from "react-router-dom";
 
@@ -17,11 +18,12 @@ class Main extends React.Component {
     return (
     <Router>
       <React.Fragment>
+        <Header />
         <Navbar />
-        <Route className='nav1' exact path='/' component={Home} />
-        <Route className='nav1' path='/league' component={League} />
-        <Route className='nav2' path='/fixtures' component={Fixtures} />
-        <Route className='nav2' path='/favourites' component={Favourites} />
+        <Route exact path='/' component={Home} />
+        <Route path='/league' component={League} />
+        <Route path='/fixtures' component={Fixtures} />
+        <Route path='/favourites' component={Favourites} />
       </React.Fragment>
     </Router>
     );
