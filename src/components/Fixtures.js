@@ -1,5 +1,6 @@
 import React from "react";
 import Fixture from "./Fixture";
+import MapContainer from "../containers/MapContainer";
 
 // const Fixtures = () => (
 //   <div>
@@ -25,8 +26,11 @@ class Fixtures extends React.Component {
   render() {
     return (
       <div>
+        <MapContainer />
+
         {this.state.fixtures.map((fixture, index) => {
           return (
+            <div>
             <Fixture
               homeTeam={fixture.homeTeamName}
               awayTeam={fixture.awayTeamName}
@@ -37,6 +41,8 @@ class Fixtures extends React.Component {
               key={index}
               >
             </Fixture>
+          </div>
+
           )
         })}
       </div>
