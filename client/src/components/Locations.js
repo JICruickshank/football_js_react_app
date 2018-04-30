@@ -1,0 +1,22 @@
+export const Stadiums = [
+    {lat: 53.4831, lng: -2.2004, team: "Manchester City", zoom: 10},
+    {lat: 53.4631, lng: -2.2913, team: "Manchester Utd", zoom: 10},
+    {lat: 53.4308, lng: -2.9608, team: "Liverpool", zoom: 10},
+    {lat: 51.5549, lng: -0.1084, team: "Arsenal", zoom: 10},
+    {lat: 51.5560, lng: -0.2795, team: "Tottenham", zoom: 10},
+    {lat: 51.4817, lng: -0.1910, team: "Chelsea", zoom: 10},
+    {lat: 53.7890, lng: -2.2302, team: "Burnley", zoom: 10},
+    {lat: 53.4388, lng: -2.9663, team: "Everton", zoom: 10},
+    {lat: 52.6204, lng: -1.1422, team: "Leicester", zoom: 10},
+    {lat: 54.9756, lng: -1.6217, team: "Newcastle", zoom: 10},
+    {lat: 51.398270, lng: -0.085644, team: "Crystal Palace", zoom: 10},
+    {lat: 50.7352, lng: -1.838515, team: "Bournemouth", zoom: 10},
+    {lat: 51.649939, lng: -0.401707, team: "Watford", zoom: 10},
+    {lat: 50.861701, lng: -0.084070, team: "Brighton", zoom: 10},
+    {lat: 51.5387078, lng: -0.0175076, team: "West Ham", zoom: 10},
+    {lat: 53.654516, lng: -1.768398, team: "Huddersfield", zoom: 10},
+    {lat: 51.642827, lng: -3.934255, team: "Swansea City", zoom: 10},
+    {lat: 50.905024, lng: -1.3923383, team: "Southampton", zoom: 10},
+    {lat: 52.988343, lng: -2.175693, team: "Stoke City", zoom: 10},
+    {lat: 52.509058, lng: -1.964110, team: "West Brom", zoom: 10}
+];
