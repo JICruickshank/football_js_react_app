@@ -9,8 +9,12 @@ import Fixture from "./Fixture";
 class Fixtures extends React.Component {
   constructor(props) {
     super(props);
+    this.filterFixturesByMonth = this.filterFixturesByMonth.bind(this);
+
+
     this.state = {
-      fixtures: []
+      fixtures: [],
+      displayFixtures: []
     }
   }
   componentDidMount() {
@@ -18,10 +22,29 @@ class Fixtures extends React.Component {
       .then(response => response.json())
       .then(json => this.setState({fixtures: json.fixtures}))
   }
+
+  filterFixturesByMonth(fixtures) {
+    const currentDate = new Date();
+    const currentMonth = currentDate.getMonth();
+    let filteredFixtures = [];
+    for (let fixture of fixtures) {
+      const fixtureDate = new Date(fixture.date);
+      console.log("fixture Date", fixtureDate);
+      const fixtureMonth = fixtureDate.getMonth();
+      console.log("fixture Month", fixtureMonth);
+      if (fixtureMonth === currentMonth) {
+        filteredFixtures.push(fixture)
+      }
+    }
+    return filteredFixtures;
+    // this.setState({displayFixtures: filteredFixtures})
+  }
+
   render() {
+    let fixtures = this.filterFixturesByMonth(this.state.fixtures);
     return (
       <div>
-        {this.state.fixtures.map((fixture, index) => {
+        {fixtures.map((fixture, index) => {
           return (
             <Fixture
               homeTeam={fixture.homeTeamName}
