@@ -1,7 +1,9 @@
 import React from "react";
+
+
+
 const Fixture = (props) => {
   const addToFavourites = function(){
-    debugger;
     let date = new Date(props.date);
     const stringDate = date.toDateString();
     const favouriteToAdd= {
@@ -9,10 +11,27 @@ const Fixture = (props) => {
       homeTeam:props.homeTeam,
       awayTeam:props.awayTeam
     }
+
     console.log("button working");
-    // return null;
-  }
-  // this.addToFavourites = this.addToFavourites.bind(this);
+
+    const request = new XMLHttpRequest();
+    request.open("POST", "//localhost:3001/api/favourites");
+
+    request.setRequestHeader("Content-Type", "application/json");
+
+    request.addEventListener('load', function(){
+      if(this.status !== 201){
+        return;
+      }
+
+    })
+
+    request.send(JSON.stringify(favouriteToAdd));
+
+  };
+
+
+
   if(props.status === "FINISHED") {
     let date = new Date(props.date)
     const stringDate = date.toDateString();

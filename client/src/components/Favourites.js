@@ -7,7 +7,7 @@ const Favourites = () => (
   <div>
     <h4>Favourites</h4>
     <p>Welcome to our magical favourites page</p>
-  <MapContainer locations={locations}/>
+  
   </div>
 );
 export default Favourites;
