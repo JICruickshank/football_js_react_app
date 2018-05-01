@@ -10,8 +10,9 @@ class Main extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      league: []
-       locations: [
+      league: [],
+      fixtures: []
+      locations: [
           {team: "Manchester City FC", coords:{lat: 53.4831, lng: -2.2004}, description: "Eithad Stadium"},
           {team: "Manchester United FC", coords:{lat: 53.4631, lng: -2.2913}, description: "Old Trafford"},
           {team: "Liverpool FC", coords:{lat: 53.4308, lng: -2.9608}, description: "Anfield"},
@@ -33,7 +34,6 @@ class Main extends React.Component {
           {team: "Stoke City FC", coords:{lat: 52.988343, lng: -2.175693}, description: "Bet 365 Stadium"},
           {team: "West Bromwich Albion FC", coords:{lat: 52.509058, lng: -1.964110}, description: "The Hawthorns"}
       ]
-
     }
   }
 
@@ -42,7 +42,12 @@ class Main extends React.Component {
     fetch("http://api.football-data.org/v1/competitions/445/leagueTable?api-key=ce59c6fd7c2d47c29fb4c133e01112d8", {headers: {'x-auth-token': 'ce59c6fd7c2d47c29fb4c133e01112d8'}})
       .then(response => response.json())
       .then(json => this.setState({league: json.standing}))
+
+    fetch("http://api.football-data.org/v1/competitions/445/fixtures?api-key=ce59c6fd7c2d47c29fb4c133e01112d8", {headers: {'x-auth-token': 'ce59c6fd7c2d47c29fb4c133e01112d8'}})
+      .then(response => response.json())
+      .then(json => this.setState({fixtures: json.fixtures}))
   }
+
 
   render() {
     return (
@@ -53,7 +58,10 @@ class Main extends React.Component {
         <Route path='/league' render={() => {return(
           <LeagueTable teams={this.state.league}/>
         )}}/>
-        <Route path='/fixtures' render={ () => <Fixtures locations={this.state.locations} />} />
+        <Route path='/fixtures' render={() => {return(
+          <Fixtures fixtures={this.state.fixtures} locations={this.state.locations}/>
+        )}}/>
+
         <Route path='/favourites' component={Favourites} />
       </React.Fragment>
     </Router>
