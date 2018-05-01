@@ -17,11 +17,6 @@ class Fixtures extends React.Component {
       displayFixtures: []
     }
   }
-  componentDidMount() {
-    fetch("http://api.football-data.org/v1/competitions/445/fixtures?api-key=ce59c6fd7c2d47c29fb4c133e01112d8", {headers: {'x-auth-token': 'ce59c6fd7c2d47c29fb4c133e01112d8'}})
-      .then(response => response.json())
-      .then(json => this.setState({fixtures: json.fixtures}))
-  }
 
   filterFixturesByMonth(fixtures) {
     const currentDate = new Date();
@@ -41,7 +36,10 @@ class Fixtures extends React.Component {
   }
 
   render() {
-    let fixtures = this.filterFixturesByMonth(this.state.fixtures);
+    if (!this.props.fixtures) {
+      return null
+    }
+    let fixtures = this.filterFixturesByMonth(this.props.fixtures);
     return (
       <div>
         {fixtures.map((fixture, index) => {
