@@ -11,7 +11,7 @@ class Main extends React.Component {
     super(props);
     this.state = {
       league: [],
-      fixtures: []
+      fixtures: [],
       locations: [
           {team: "Manchester City FC", coords:{lat: 53.4831, lng: -2.2004}, description: "Eithad Stadium"},
           {team: "Manchester United FC", coords:{lat: 53.4631, lng: -2.2913}, description: "Old Trafford"},
