@@ -1,6 +1,6 @@
 import React from "react";
 import Home from "./Home";
-import LeaguePage from "./LeaguePage";
+import LeagueTable from "./LeagueTable";
 import Fixtures from "./Fixtures";
 import Favourites from "./Favourites";
 import Navbar from "./Navbar";
@@ -10,6 +10,7 @@ class Main extends React.Component {
   constructor(props){
     super(props);
     this.state = {
+      league: []
        locations: [
           {team: "Manchester City FC", coords:{lat: 53.4831, lng: -2.2004}, description: "Eithad Stadium"},
           {team: "Manchester United FC", coords:{lat: 53.4631, lng: -2.2913}, description: "Old Trafford"},
@@ -32,9 +33,16 @@ class Main extends React.Component {
           {team: "Stoke City FC", coords:{lat: 52.988343, lng: -2.175693}, description: "Bet 365 Stadium"},
           {team: "West Bromwich Albion FC", coords:{lat: 52.509058, lng: -1.964110}, description: "The Hawthorns"}
       ]
+
     }
   }
 
+  componentDidMount() {
+
+    fetch("http://api.football-data.org/v1/competitions/445/leagueTable?api-key=ce59c6fd7c2d47c29fb4c133e01112d8", {headers: {'x-auth-token': 'ce59c6fd7c2d47c29fb4c133e01112d8'}})
+      .then(response => response.json())
+      .then(json => this.setState({league: json.standing}))
+  }
 
   render() {
     return (
@@ -42,7 +50,9 @@ class Main extends React.Component {
       <React.Fragment>
         <Navbar />
         <Route exact path='/' component={Home} />
-        <Route path='/league' component={LeaguePage} />
+        <Route path='/league' render={() => {return(
+          <LeagueTable teams={this.state.league}/>
+        )}}/>
         <Route path='/fixtures' render={ () => <Fixtures locations={this.state.locations} />} />
         <Route path='/favourites' component={Favourites} />
       </React.Fragment>
