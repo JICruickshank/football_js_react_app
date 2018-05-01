@@ -5,28 +5,16 @@ import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 class LeagueTable extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      league: [],
-      loaded: false
-    }
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    debugger;
-    this.setState({league: this.props.teams})
   }
 
   render() {
-
-  if (this.props.teams === null) {
+    if (!this.props.teams) {
     return (
-      "loading..."
-    )
-  }
-  else {
+      null
+    )}
 
   let data = [];
-  for (let team of this.state.league) {
+  for (let team of this.props.teams) {
     const teamData = {
       position: team.position,
       name: team.teamName,
@@ -98,5 +86,6 @@ class LeagueTable extends React.Component {
     </div>
   )
   }
-}}
+}
+
 export default LeagueTable;
