@@ -1,12 +1,9 @@
 import React from "react";
 import Fixture from "./Fixture";
 import MapContainer from '../containers/MapContainer.js';
-// const Fixtures = () => (
-//   <div>
-//     <h4>Fixtures</h4>
-//     <p>Welcome to our magical fixtures page</p>
-//   </div>
-// );
+
+
+
 class Fixtures extends React.Component {
   constructor(props) {
     super(props);
@@ -32,7 +29,6 @@ class Fixtures extends React.Component {
       }
     }
     return filteredFixtures;
-    // this.setState({displayFixtures: filteredFixtures})
   }
 
   render() {

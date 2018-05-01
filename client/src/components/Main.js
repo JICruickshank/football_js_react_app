@@ -50,7 +50,7 @@ class Main extends React.Component {
 
     fetch("http://localhost:3001/api/favourites")
       .then(response => response.json())
-      .then(json => this.setState({favourites: json}))
+      .then(json => {this.setState({favourites: json})})
   }
 
 
@@ -66,7 +66,9 @@ class Main extends React.Component {
         <Route path='/fixtures' render={() => {return(
           <Fixtures fixtures={this.state.fixtures} locations={this.state.locations}/>
         )}}/>
-        <Route path='/favourites' component={Favourites} />
+        <Route path='/favourites' render={() => {return(
+          <Favourites favourites={this.state.favourites} locations={this.state.locations}/>
+        )}}/>
       </React.Fragment>
     </Router>
     );
