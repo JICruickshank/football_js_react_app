@@ -5,8 +5,7 @@ const Fixture = (props) => {
     const stringDate = date.toDateString();
     return (
       <React.Fragment>
-        <p>{stringDate}</p>
-        <p>{props.homeTeam} {props.homeGoals}-{props.awayGoals} {props.awayTeam}</p>
+        <p>{stringDate} {props.homeTeam} {props.homeGoals}-{props.awayGoals} {props.awayTeam}</p>
       </React.Fragment>
     )
   }
@@ -15,8 +14,7 @@ const Fixture = (props) => {
     const stringDate = date.toDateString();
     return (
       <React.Fragment>
-        <p>{stringDate}</p>
-        <p>{props.homeTeam} v {props.awayTeam}</p>
+        <p>{stringDate} {props.homeTeam} v {props.awayTeam} <button>Add to Favourites</button></p>
       </React.Fragment>
     )
   }
