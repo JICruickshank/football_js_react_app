@@ -1,5 +1,6 @@
 import React from "react";
 import Fixture from "./Fixture";
+import MapContainer from '../containers/MapContainer.js';
 // const Fixtures = () => (
 //   <div>
 //     <h4>Fixtures</h4>
@@ -14,7 +15,8 @@ class Fixtures extends React.Component {
 
     this.state = {
       fixtures: [],
-      displayFixtures: []
+      displayFixtures: [],
+      locations: []
     }
   }
   componentDidMount() {
@@ -44,6 +46,7 @@ class Fixtures extends React.Component {
     let fixtures = this.filterFixturesByMonth(this.state.fixtures);
     return (
       <div>
+        <MapContainer locations={this.props.locations}/>
         {fixtures.map((fixture, index) => {
           return (
             <Fixture
