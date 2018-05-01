@@ -33,7 +33,8 @@ class Main extends React.Component {
           {team: "Southampton FC", coords:{lat: 50.905024, lng: -1.3923383}, description: "St Mary's Stadium"},
           {team: "Stoke City FC", coords:{lat: 52.988343, lng: -2.175693}, description: "Bet 365 Stadium"},
           {team: "West Bromwich Albion FC", coords:{lat: 52.509058, lng: -1.964110}, description: "The Hawthorns"}
-      ]
+      ],
+      favourites: []
     }
   }
 
@@ -46,6 +47,10 @@ class Main extends React.Component {
     fetch("http://api.football-data.org/v1/competitions/445/fixtures?api-key=ce59c6fd7c2d47c29fb4c133e01112d8", {headers: {'x-auth-token': 'ce59c6fd7c2d47c29fb4c133e01112d8'}})
       .then(response => response.json())
       .then(json => this.setState({fixtures: json.fixtures}))
+
+    fetch("http://localhost:3001/api/favourites")
+      .then(response => response.json())
+      .then(json => this.setState({favourites: json}))
   }
 
 
@@ -61,7 +66,6 @@ class Main extends React.Component {
         <Route path='/fixtures' render={() => {return(
           <Fixtures fixtures={this.state.fixtures} locations={this.state.locations}/>
         )}}/>
-
         <Route path='/favourites' component={Favourites} />
       </React.Fragment>
     </Router>
