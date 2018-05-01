@@ -26,9 +26,7 @@ class Fixtures extends React.Component {
     let filteredFixtures = [];
     for (let fixture of fixtures) {
       const fixtureDate = new Date(fixture.date);
-      console.log("fixture Date", fixtureDate);
       const fixtureMonth = fixtureDate.getMonth();
-      console.log("fixture Month", fixtureMonth);
       if (fixtureMonth === currentMonth) {
         filteredFixtures.push(fixture)
       }
