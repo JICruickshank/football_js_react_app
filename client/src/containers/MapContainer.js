@@ -1,6 +1,5 @@
 import React from "react";
 import GoogleMapReact from "google-map-react";
-import Favourites from '../components/Favourites';
 // import {Locations} from '../components/Locations';
 class MapContainer extends React.Component {
     constructor(props){
@@ -18,6 +17,7 @@ class MapContainer extends React.Component {
         this.maps = maps;
         this.renderMarker();
     }
+
     renderMarker(){
         console.log("render Marker testing");
         for(let location of this.props.locations){
@@ -25,11 +25,20 @@ class MapContainer extends React.Component {
             position: location.coords,
             map: this.map
         });
+
+        let contentString = '<p class="infoWindow">' + (location.description) + '</p>'
+
+        let infoWindow = new this.maps.InfoWindow({
+          content: contentString
+        });
+
+        marker.addListener('click', function(){
+          infoWindow.open(this.map, marker);
+        })
     }
     }
     componentDidUpdate(prevProps, prevState, snapshot){
         this.renderMarker();
-        // let marker = this.props.marker;
     }
     render(){
         return(
