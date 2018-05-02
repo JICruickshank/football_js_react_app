@@ -1,6 +1,7 @@
 import React from "react";
 import Fixture from "./Fixture";
 import MapContainer from '../containers/MapContainer.js';
+import DropDown from "./DropDown"
 
 
 
@@ -8,24 +9,29 @@ class Fixtures extends React.Component {
   constructor(props) {
     super(props);
     this.filterFixturesByMonth = this.filterFixturesByMonth.bind(this);
-
-
+    this.changeMonth = this.changeMonth.bind(this);
+    const currentDate = new Date();
+    const currentMonth = currentDate.getMonth();
     this.state = {
       fixtures: [],
       displayFixtures: [],
       locations: [],
-      favourites: []
+      favourites: [],
+      month: currentMonth
+      }
     }
+
+  changeMonth(event) {
+    this.setState({month: parseInt(event.target.value)}, function() {console.log(this.state.month)})
+
   }
 
-  filterFixturesByMonth(fixtures) {
-    const currentDate = new Date();
-    const currentMonth = currentDate.getMonth();
+  filterFixturesByMonth(fixtures, month) {
     let filteredFixtures = [];
     for (let fixture of fixtures) {
       const fixtureDate = new Date(fixture.date);
       const fixtureMonth = fixtureDate.getMonth();
-      if (fixtureMonth === currentMonth) {
+      if (fixtureMonth === month) {
         filteredFixtures.push(fixture)
       }
     }
@@ -36,10 +42,11 @@ class Fixtures extends React.Component {
     if (!this.props.fixtures) {
       return null
     }
-    let fixtures = this.filterFixturesByMonth(this.props.fixtures);
+    let fixtures = this.filterFixturesByMonth(this.props.fixtures, this.state.month);
     return (
       <div>
         <MapContainer locations={this.props.locations}/>
+        <DropDown handleSelectChange={this.changeMonth}></DropDown>
         {fixtures.map((fixture, index) => {
           return (
             <Fixture
