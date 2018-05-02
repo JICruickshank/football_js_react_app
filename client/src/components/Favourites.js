@@ -26,6 +26,7 @@ class Favourites extends React.Component {
     return array;
   }
 
+
   render() {
     if (!this.props.favourites) {
       return null

@@ -2,6 +2,7 @@ import React from "react";
 import Home from "./Home";
 import LeagueTable from "./LeagueTable";
 import Fixtures from "./Fixtures";
+import Fixture from "./Fixture";
 import Favourites from "./Favourites";
 import Navbar from "./Navbar";
 import {BrowserRouter as Router, Route} from "react-router-dom";
@@ -9,6 +10,9 @@ import {BrowserRouter as Router, Route} from "react-router-dom";
 class Main extends React.Component {
   constructor(props){
     super(props);
+
+    this.addFavourite = this.addFavourite.bind(this);
+
     this.state = {
       league: [],
       fixtures: [],
@@ -53,6 +57,12 @@ class Main extends React.Component {
       .then(json => {this.setState({favourites: json})})
   }
 
+  addFavourite = function() {
+    fetch("http://localhost:3001/api/favourites")
+      .then(response => response.json())
+      .then(json => {this.setState({favourites: json})})
+  }
+
 
   render() {
     return (
@@ -64,7 +74,7 @@ class Main extends React.Component {
           <LeagueTable teams={this.state.league}/>
         )}}/>
         <Route path='/fixtures' render={() => {return(
-          <Fixtures fixtures={this.state.fixtures} locations={this.state.locations}/>
+          <Fixtures fixtures={this.state.fixtures} locations={this.state.locations} favourites={this.state.favourites} action={this.addFavourite} />
         )}}/>
         <Route path='/favourites' render={() => {return(
           <Favourites favourites={this.state.favourites} locations={this.state.locations}/>
