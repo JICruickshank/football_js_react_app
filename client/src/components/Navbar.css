@@ -3,9 +3,8 @@ ul {
   padding: 0;
 }
 
-li, .navlink {
+.navbar li {
   display: inline-flex;
-  color: white;
   list-style-type: none;
   text-decoration: none;
   margin: 0 30px 0 20px;
@@ -16,6 +15,16 @@ li, .navlink {
   font-size: 22px;
   font-weight: 200;
   margin-left: 85px;
+  margin-bottom: 50px
+}
+
+.navlink {
+  display: inline-flex;
+  list-style-type: none;
+  text-decoration: none;
+  margin: 0 30px 0 20px;
+  color: white;
+  text-shadow: 1px 1px 2px rgb(0, 0, 0);
 }
 
 .navlink:hover {

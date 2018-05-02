@@ -42,7 +42,7 @@ const DropDown = (props) => {
   }
 
   return (
-    <div>
+    <div className="dropdown">
       <select onChange={props.handleSelectChange}>
         {months.map(month => {
           return <option selected={selectedValue(month.index)} key={month.index} value={month.index}>{month.month}</option>
@@ -50,19 +50,6 @@ const DropDown = (props) => {
       </select>
     </div>
   )
-
-//   return (
-//     <div>
-//       <h1>Hit Parade</h1>
-//       <select onChange={props.handleSelectChange}>
-//         {props.genres.map(genre => {
-//           return <option key={genre.name} value={genre.url}>{genre.name}</option>
-//         })}
-//       </select>
-//     </div>
-//   );
-// };
-
 }
 
 export default DropDown;
