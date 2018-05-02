@@ -24,14 +24,13 @@ class Fixtures extends React.Component {
   changeMonth(event) {
     // console.log("previous", this.state.month);
     // console.log("selected", event.target.value)
-    this.setState({month: event.target.value}, function() {console.log(this.state.month)})
+    this.setState({month: parseInt(event.target.value)}, function() {console.log(this.state.month)})
 
   }
 
   filterFixturesByMonth(fixtures, month) {
     let filteredFixtures = [];
     for (let fixture of fixtures) {
-      debugger;
       const fixtureDate = new Date(fixture.date);
       const fixtureMonth = fixtureDate.getMonth();
       if (fixtureMonth === month) {
