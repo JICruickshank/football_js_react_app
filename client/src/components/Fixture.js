@@ -22,7 +22,6 @@ const Fixture = (props) => {
       }
     })
     request.send(JSON.stringify(favouriteToAdd));
-    props.action()
   };
 
 
@@ -31,18 +30,53 @@ const Fixture = (props) => {
     let date = new Date(props.date)
     const stringDate = date.toDateString();
     return (
-      <React.Fragment>
-        <p>{stringDate} {props.homeTeam} {props.homeGoals}-{props.awayGoals} {props.awayTeam}</p>
-      </React.Fragment>
+      <div className="fixtures">
+        <ul>
+          <li classname="fix-li">
+            {stringDate}
+          </li>
+          <li classname="fix-li">
+            {props.homeTeam}
+          </li>
+          <li classname="fix-li">
+            {props.homeGoals}
+          </li>
+          <li classname="fix-li">
+            -
+          </li>
+          <li classname="fix-li">
+            {props.awayGoals}
+          </li>
+          <li classname="fix-li">
+            {props.awayTeam}
+          </li>
+        </ul>
+      </div>
     )
   }
   else {
     let date = new Date(props.date);
     const stringDate = date.toDateString();
     return (
-      <React.Fragment>
-        <p>{stringDate} {props.homeTeam} v {props.awayTeam} <button onClick={addToFavourites}>Add to Favourites</button></p>
-      </React.Fragment>
+      <div className="fixtures">
+        <ul>
+          <li classname="fix-li">
+            {stringDate}
+          </li>
+          <li classname="fix-li">
+            {props.homeTeam}
+          </li>
+          <li classname="fix-li">
+            v
+          </li>
+          <li classname="fix-li">
+            {props.awayTeam}
+          </li>
+          <li classname="fix-li">
+            <button onClick={addToFavourites}>Add to Favourites</button>
+          </li>
+        </ul>
+      </div>
     )
   }
 

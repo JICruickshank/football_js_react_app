@@ -1,0 +1,18 @@
+.line1, .line2, .line3 {
+  padding: 0;
+}
+
+.line1 {
+  margin: 175px 0 0 250px;
+  font-size: 78px;
+}
+
+.line2 {
+  margin: 0 0 0 350px;
+  font-size: 62px;
+}
+
+.line3 {
+  margin: 10px 0 0 450px;
+  font-size: 46px;
+}
