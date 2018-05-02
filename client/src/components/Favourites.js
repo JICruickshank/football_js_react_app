@@ -38,7 +38,7 @@ class Favourites extends React.Component {
         {this.props.favourites.map((favourite, index) => {
           return (
             <React.Fragment>
-              <p>{favourite.date} {favourite.homeTeam} {favourite.homeGoals}-{favourite.awayGoals} {favourite.awayTeam}</p>
+              <p>{favourite.date} {favourite.homeTeam} {favourite.homeGoals}-{favourite.awayGoals} {favourite.awayTeam} <button>Delete Fixture</button></p>
             </React.Fragment>
           )
         })}
