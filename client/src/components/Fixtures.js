@@ -13,7 +13,8 @@ class Fixtures extends React.Component {
     this.state = {
       fixtures: [],
       displayFixtures: [],
-      locations: []
+      locations: [],
+      favourites: []
     }
   }
 
@@ -49,6 +50,7 @@ class Fixtures extends React.Component {
               awayGoals={fixture.result.goalsAwayTeam}
               date={fixture.date}
               key={index}
+              action={this.props.action}
               >
             </Fixture>
           )

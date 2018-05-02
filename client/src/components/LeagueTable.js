@@ -1,7 +1,7 @@
 import React from "react";
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
-// import '.LeagueTable.css';1
-// import "../../node_modules/react-bootstrap-table/css/react-bootstrap-table.css";
+
+
 class LeagueTable extends React.Component {
   constructor(props) {
     super(props);
