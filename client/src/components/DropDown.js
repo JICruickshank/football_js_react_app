@@ -28,11 +28,24 @@ const DropDown = (props) => {
     index: 11}
   ]
 
+  const getCurrentMonth = function() {
+    const date = new Date();
+    const currentMonth = date.getMonth();
+    return currentMonth;
+  }
+
+  const selectedValue = function(index) {
+    if(index === getCurrentMonth()) {
+      return true;
+    }
+    return false;
+  }
+
   return (
     <div>
-      <select >
+      <select onChange={props.handleSelectChange}>
         {months.map(month => {
-          return <option key={month.index} value={month.index}>{month.month}</option>
+          return <option selected={selectedValue(month.index)} key={month.index} value={month.index}>{month.month}</option>
         })}
       </select>
     </div>
