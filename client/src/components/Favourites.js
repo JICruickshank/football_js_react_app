@@ -14,10 +14,8 @@ class Favourites extends React.Component {
   }
 
   deleteFromFavourites(id_passed_in){
-        debugger;
         const request = new XMLHttpRequest();
         request.open("DELETE", "//localhost:3001/api/favourites/" + id_passed_in);
-        debugger;
         request.setRequestHeader("Content-Type", "application/json");
         request.addEventListener('load', function(){
           if(this.status !== 201){
