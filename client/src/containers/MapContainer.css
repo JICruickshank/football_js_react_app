@@ -3,6 +3,7 @@
 }
 
 .map {
-  margin: auto auto 60px auto;
+  float: right;
+  margin: 30px 30px 60px 30px;
   border: 5px solid rgb(252, 64, 17);
 }

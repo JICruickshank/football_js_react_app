@@ -32,22 +32,22 @@ const Fixture = (props) => {
     return (
       <div className="fixtures">
         <ul>
-          <li classname="fix-li">
+          <li classname="fixli">
             {stringDate}
           </li>
-          <li classname="fix-li">
+          <li classname="fixli">
             {props.homeTeam}
           </li>
-          <li classname="fix-li">
+          <li classname="fixli">
             {props.homeGoals}
           </li>
-          <li classname="fix-li">
+          <li classname="fixli">
             -
           </li>
-          <li classname="fix-li">
+          <li classname="fixli">
             {props.awayGoals}
           </li>
-          <li classname="fix-li">
+          <li classname="fixli">
             {props.awayTeam}
           </li>
         </ul>
@@ -60,20 +60,20 @@ const Fixture = (props) => {
     return (
       <div className="fixtures">
         <ul>
-          <li classname="fix-li">
+          <li className="fixli1">
             {stringDate}
           </li>
-          <li classname="fix-li">
+          <li className="fixli2">
             {props.homeTeam}
           </li>
-          <li classname="fix-li">
+          <li className="fixli3">
             v
           </li>
-          <li classname="fix-li">
+          <li className="fixli4">
             {props.awayTeam}
           </li>
-          <li classname="fix-li">
-            <button onClick={addToFavourites}>Add to Favourites</button>
+          <li className="fixli-button5">
+            <button onClick={addToFavourites}>Add</button>
           </li>
         </ul>
       </div>
