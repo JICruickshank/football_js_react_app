@@ -22,6 +22,7 @@ const Fixture = (props) => {
       }
     })
     request.send(JSON.stringify(favouriteToAdd));
+    props.action()
   };
 
 
