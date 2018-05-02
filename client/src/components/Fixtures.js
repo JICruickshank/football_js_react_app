@@ -1,6 +1,7 @@
 import React from "react";
 import Fixture from "./Fixture";
 import MapContainer from '../containers/MapContainer.js';
+import DropDown from "./DropDown"
 
 
 
@@ -40,6 +41,7 @@ class Fixtures extends React.Component {
     return (
       <div>
         <MapContainer locations={this.props.locations}/>
+        <DropDown></DropDown>
         {fixtures.map((fixture, index) => {
           return (
             <Fixture
