@@ -49,12 +49,31 @@ class Favourites extends React.Component {
 
     return (
       <div>
+        <div className="spacer">
+
+        </div>
         <MapContainer locations= {this.checkTeam()} />
         {this.props.favourites.map((favourite, index) => {
           return (
-            <React.Fragment>
-              <p>{favourite.date} {favourite.homeTeam} {favourite.homeGoals}-{favourite.awayGoals} {favourite.awayTeam} <button onClick={() => this.deleteFromFavourites(favourite._id)}>Delete Fixture</button></p>
-            </React.Fragment>
+            <div className="favourites">
+              <ul>
+                <li className="favli1">
+                  {favourite.date}
+                </li>
+                <li className="favli2">
+                  {favourite.homeTeam}
+                </li>
+                <li className="favli3">
+                  v
+                </li>
+                <li className="favli4">
+                  {favourite.awayTeam}
+                </li>
+                <li className="favli-button5">
+                  <button className="btn" onClick={() => this.deleteFromFavourites(favourite._id)}>Remove</button>
+                </li>
+              </ul>
+            </div>
           )
         })}
       </div>
