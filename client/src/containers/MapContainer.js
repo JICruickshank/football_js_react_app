@@ -1,5 +1,6 @@
 import React from "react";
 import GoogleMapReact from "google-map-react";
+import Fixture from "../components/Fixture"
 // import {Locations} from '../components/Locations';
 class MapContainer extends React.Component {
     constructor(props){
@@ -7,8 +8,10 @@ class MapContainer extends React.Component {
         this.map = null;
         this.maps = null;
         this.renderMarker = this.renderMarker.bind(this);
+        this.center = this.center.bind(this);
         this.state = {
-            markers: []
+            markers: [],
+            center: {lng:50, lat:50}
         };
         this.storeMaps = this.storeMaps.bind(this);
     }
@@ -18,12 +21,24 @@ class MapContainer extends React.Component {
         this.renderMarker();
     }
 
+    // function to set center to stadium if not null. render map with this center
+    center() {
+      if (this.props.stadium !== null && this.map !==null) {
+        this.map.setCenter(this.props.stadium);
+        this.map.setZoom(15);
+        // return {lng: 0, lat: 0}
+      }
+      else {
+        return;
+      }
+    }
+
     renderMarker(){
-        console.log("render Marker testing");
         for(let location of this.props.locations){
         let marker = new this.maps.Marker({
             position: location.coords,
-            map: this.map
+            map: this.map,
+            center: {lat:-2, lng: 52}
         });
 
         let contentString = '<p class="infoWindow">' + (location.description) + '</p>'
@@ -39,12 +54,14 @@ class MapContainer extends React.Component {
     }
     componentDidUpdate(prevProps, prevState, snapshot){
         this.renderMarker();
+        this.center();
     }
     render(){
+
         return(
             <div style={{ height: `300px`, width: '90%' }}>
                 <GoogleMapReact
-                    center = { { lat: 52.489471, lng: -1.898575 } }
+                    center = { this.state.center }
                     zoom = { 6 }
                     onGoogleApiLoaded = {this.storeMaps}
                 />

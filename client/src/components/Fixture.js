@@ -25,6 +25,11 @@ const Fixture = (props) => {
     props.action()
   };
 
+  // pass home team to fixtures getStadium method
+  const findStadium = function() {
+    props.stadium(props.homeTeam);
+  }
+
 
 
   if(props.status === "FINISHED") {
@@ -41,7 +46,7 @@ const Fixture = (props) => {
     const stringDate = date.toDateString();
     return (
       <React.Fragment>
-        <p>{stringDate} {props.homeTeam} v {props.awayTeam} <button onClick={addToFavourites}>Add to Favourites</button></p>
+        <p>{stringDate} {props.homeTeam} v {props.awayTeam} <button onClick={addToFavourites}>Add to Favourites</button><button onClick={findStadium}>Show On Map</button></p>
       </React.Fragment>
     )
   }
