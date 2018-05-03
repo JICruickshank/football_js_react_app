@@ -8,7 +8,7 @@ class Fixtures extends React.Component {
     super(props);
     this.filterFixturesByMonth = this.filterFixturesByMonth.bind(this);
     this.changeMonth = this.changeMonth.bind(this);
-
+    this.findMatchDays = this.findMatchDays.bind(this);
     this.getStadium = this.getStadium.bind(this);
 
     const currentDate = new Date();
@@ -19,9 +19,7 @@ class Fixtures extends React.Component {
       locations: [],
       favourites: [],
       month: currentMonth,
-      stadium: null,
-
-      month: currentMonth
+      stadium: null
       }
     }
 
@@ -42,6 +40,35 @@ class Fixtures extends React.Component {
     return filteredFixtures;
   }
 
+  // add all match dates to an array
+  // eliminate duplicates
+  // for each date, loop over fixtures and add to an array
+  // create object holding objects (date as key, array of fixtures as value)
+  findMatchDays() {
+    let matchDays = [];
+    for (let fixture of this.props.fixtures) {
+      const fixtureDate = new Date(fixture.date);
+      const stringDate = fixtureDate.toDateString();
+      matchDays.push(stringDate);
+    }
+    matchDays = Array.from(new Set(matchDays));
+    let fixturesObject = {}
+    for (let matchDay of matchDays) {
+      let matchDayGames = [];
+      for (let fixture of this.props.fixtures) {
+        const fixtureDate = new Date(fixture.date);
+        const stringDate = fixtureDate.toDateString();
+        if (stringDate === matchDay) {
+          matchDayGames.push(fixture);
+        }
+      }
+      fixturesObject[matchDay] = matchDayGames;
+    }
+    console.log(fixturesObject);
+
+
+  }
+
   // find location of home team, set state to render page and map again
   // pass down stadium to map container
   getStadium(team) {
@@ -54,6 +81,7 @@ class Fixtures extends React.Component {
   }
 
   render() {
+    this.findMatchDays()
     if (!this.props.fixtures) {
       return null
     }
