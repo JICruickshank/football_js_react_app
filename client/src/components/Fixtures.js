@@ -21,7 +21,7 @@ class Fixtures extends React.Component {
       locations: [],
       favourites: [],
       month: currentMonth,
-      stadium: null
+      stadium: null,
 
       month: currentMonth
       }

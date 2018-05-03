@@ -81,6 +81,9 @@ const Fixture = (props) => {
           <li className="fixli-button5">
             <button onClick={addToFavourites}>Add</button>
           </li>
+          <li className="fixli-button5">
+            <button onClick={findStadium}>Location</button>
+          </li>
         </ul>
       </div>
 
