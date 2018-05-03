@@ -13,6 +13,12 @@ class Favourites extends React.Component {
     }
   }
 
+  componentDidMount() {
+    fetch("http://localhost:3001/api/favourites")
+      .then(response => response.json())
+      .then(json => {this.setState({favourites: json})})
+  }
+
   deleteFromFavourites(id_passed_in){
         const request = new XMLHttpRequest();
         request.open("DELETE", "//localhost:3001/api/favourites/" + id_passed_in);
@@ -24,8 +30,6 @@ class Favourites extends React.Component {
         })
         request.send();
       }
-
-
 
   checkTeam(){
     let array =[]
@@ -50,7 +54,7 @@ class Favourites extends React.Component {
     return (
       <div>
         <MapContainer locations= {this.checkTeam()} />
-        {this.props.favourites.map((favourite, index) => {
+        {this.state.favourites.map((favourite, index) => {
           return (
             <React.Fragment>
               <p>{favourite.date} {favourite.homeTeam} {favourite.homeGoals}-{favourite.awayGoals} {favourite.awayTeam} <button onClick={() => this.deleteFromFavourites(favourite._id)}>Delete Fixture</button></p>

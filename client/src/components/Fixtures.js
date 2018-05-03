@@ -76,7 +76,6 @@ class Fixtures extends React.Component {
               awayGoals={fixture.result.goalsAwayTeam}
               date={fixture.date}
               key={index}
-              action={this.props.action}
               stadium={this.getStadium}
               >
             </Fixture>
