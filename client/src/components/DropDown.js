@@ -42,7 +42,9 @@ const DropDown = (props) => {
   }
 
   return (
+
     <div className="dropdown">
+
       <select onChange={props.handleSelectChange}>
         {months.map(month => {
           return <option selected={selectedValue(month.index)} key={month.index} value={month.index}>{month.month}</option>
@@ -50,6 +52,7 @@ const DropDown = (props) => {
       </select>
     </div>
   )
+
 }
 
 export default DropDown;

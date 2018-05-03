@@ -10,6 +10,9 @@ class Fixtures extends React.Component {
     super(props);
     this.filterFixturesByMonth = this.filterFixturesByMonth.bind(this);
     this.changeMonth = this.changeMonth.bind(this);
+
+    this.getStadium = this.getStadium.bind(this);
+
     const currentDate = new Date();
     const currentMonth = currentDate.getMonth();
     this.state = {
@@ -17,13 +20,14 @@ class Fixtures extends React.Component {
       displayFixtures: [],
       locations: [],
       favourites: [],
+      month: currentMonth,
+      stadium: null
+
       month: currentMonth
       }
     }
 
   changeMonth(event) {
-    // console.log("previous", this.state.month);
-    // console.log("selected", event.target.value)
     this.setState({month: parseInt(event.target.value)}, function() {console.log(this.state.month)})
 
   }
@@ -40,6 +44,17 @@ class Fixtures extends React.Component {
     return filteredFixtures;
   }
 
+  // find location of home team, set state to render page and map again
+  // pass down stadium to map container
+  getStadium(team) {
+    for (let location of this.props.locations) {
+      if (team === location.team) {
+        this.setState({stadium: location.coords});
+      }
+    }
+
+  }
+
   render() {
     if (!this.props.fixtures) {
       return null
@@ -47,7 +62,9 @@ class Fixtures extends React.Component {
     let fixtures = this.filterFixturesByMonth(this.props.fixtures, this.state.month);
     return (
       <div>
-        <MapContainer locations={this.props.locations}/>
+
+        <MapContainer locations={this.props.locations} stadium={this.state.stadium}/>
+
         <DropDown handleSelectChange={this.changeMonth}></DropDown>
         {fixtures.map((fixture, index) => {
           return (
@@ -60,6 +77,7 @@ class Fixtures extends React.Component {
               date={fixture.date}
               key={index}
               action={this.props.action}
+              stadium={this.getStadium}
               >
             </Fixture>
           )

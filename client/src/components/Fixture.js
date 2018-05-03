@@ -24,6 +24,11 @@ const Fixture = (props) => {
     request.send(JSON.stringify(favouriteToAdd));
   };
 
+  // pass home team to fixtures getStadium method
+  const findStadium = function() {
+    props.stadium(props.homeTeam);
+  }
+
 
 
   if(props.status === "FINISHED") {
@@ -58,6 +63,7 @@ const Fixture = (props) => {
     let date = new Date(props.date);
     const stringDate = date.toDateString();
     return (
+
       <div className="fixtures">
         <ul>
           <li className="fixli1">
@@ -77,6 +83,7 @@ const Fixture = (props) => {
           </li>
         </ul>
       </div>
+
     )
   }
 
