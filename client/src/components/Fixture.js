@@ -78,7 +78,7 @@ const Fixture = (props) => {
             {props.awayTeam}
           </li>
           <li className="fixli-button5">
-            <button className="btn" onClick={findStadium}><img src="./images/globe.png" height="12" width="15"></img></button>
+            <button className="btn" onClick={findStadium}><img src="./images/globe2.png" height="12" width="15"></img></button>
           </li>
           <li className="fixli-button6">
             <button className="btn" onClick={addToFavourites}>Add</button>
