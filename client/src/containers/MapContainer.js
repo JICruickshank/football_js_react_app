@@ -11,7 +11,7 @@ class MapContainer extends React.Component {
         this.center = this.center.bind(this);
         this.state = {
             markers: [],
-            center: {lng:50, lat:50}
+            center: {lng:-2.110748, lat:53}
         };
         this.storeMaps = this.storeMaps.bind(this);
     }
