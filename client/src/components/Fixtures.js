@@ -3,8 +3,6 @@ import Fixture from "./Fixture";
 import MapContainer from '../containers/MapContainer.js';
 import DropDown from "./DropDown"
 
-
-
 class Fixtures extends React.Component {
   constructor(props) {
     super(props);

@@ -1,7 +1,6 @@
 import React from "react";
 import GoogleMapReact from "google-map-react";
 import Fixture from "../components/Fixture"
-// import {Locations} from '../components/Locations';
 class MapContainer extends React.Component {
     constructor(props){
         super(props);

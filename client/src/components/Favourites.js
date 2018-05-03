@@ -33,7 +33,7 @@ class Favourites extends React.Component {
 
   checkTeam(){
     let array =[]
-    for(let favourite of this.props.favourites){
+    for(let favourite of this.state.favourites){
 
       for(let location of this.props.locations){
 
