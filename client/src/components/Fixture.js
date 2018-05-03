@@ -38,22 +38,22 @@ const Fixture = (props) => {
     return (
       <div className="fixtures">
         <ul>
-          <li classname="fixli">
+          <li classname="fixli1">
             {stringDate}
           </li>
-          <li classname="fixli">
+          <li classname="fixli2">
             {props.homeTeam}
           </li>
-          <li classname="fixli">
+          <li classname="fixli7">
             {props.homeGoals}
           </li>
-          <li classname="fixli">
+          <li classname="fixli3">
             -
           </li>
-          <li classname="fixli">
+          <li classname="fixli8">
             {props.awayGoals}
           </li>
-          <li classname="fixli">
+          <li classname="fixli4">
             {props.awayTeam}
           </li>
         </ul>
@@ -64,7 +64,6 @@ const Fixture = (props) => {
     let date = new Date(props.date);
     const stringDate = date.toDateString();
     return (
-
       <div className="fixtures">
         <ul>
           <li className="fixli1">
@@ -80,10 +79,10 @@ const Fixture = (props) => {
             {props.awayTeam}
           </li>
           <li className="fixli-button5">
-            <button onClick={addToFavourites}>Add</button>
+            <button className="btn" onClick={findStadium}><img src="./images/globe.png" height="12" width="15"></img></button>
           </li>
-          <li className="fixli-button5">
-            <button onClick={findStadium}>Location</button>
+          <li className="fixli-button6">
+            <button className="btn" onClick={addToFavourites}>Add</button>
           </li>
         </ul>
       </div>
