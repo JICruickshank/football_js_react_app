@@ -34,6 +34,9 @@ class MapContainer extends React.Component {
     }
 
     renderMarker(){
+      if (this.maps === null) {
+        return;
+      }
         for(let location of this.props.locations){
         let marker = new this.maps.Marker({
             position: location.coords,
