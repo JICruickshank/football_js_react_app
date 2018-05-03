@@ -41,7 +41,7 @@ class MapContainer extends React.Component {
             center: {lat:-2, lng: 52}
         });
 
-        let contentString = '<p class="infoWindow">' + (location.description) + '</p>'
+        let contentString = '<p class="infoWindow">' + (location.description) + '<br/>' + (location.address) + '<br/>' + 'Nearby train station: ' + (location.station) +'</p>'
 
         let infoWindow = new this.maps.InfoWindow({
           content: contentString
