@@ -1,5 +1,6 @@
 h1 {
   color: rgb(252, 64, 17);
+  text-shadow: 2px 2px 6px rgba(255, 255, 255, 0.6);
   text-align: center;
   font-size: 60px;
   margin-top: 5px;

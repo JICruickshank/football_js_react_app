@@ -59,9 +59,10 @@ class MapContainer extends React.Component {
     render(){
 
         return(
-            <div style={{ height: `300px`, width: '90%' }}>
+            <div className="map" style={{ height: `450px`, width: '450px' }}>
                 <GoogleMapReact
                     center = { this.state.center }
+
                     zoom = { 6 }
                     onGoogleApiLoaded = {this.storeMaps}
                 />

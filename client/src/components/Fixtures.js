@@ -10,7 +10,9 @@ class Fixtures extends React.Component {
     super(props);
     this.filterFixturesByMonth = this.filterFixturesByMonth.bind(this);
     this.changeMonth = this.changeMonth.bind(this);
+
     this.getStadium = this.getStadium.bind(this);
+
     const currentDate = new Date();
     const currentMonth = currentDate.getMonth();
     this.state = {
@@ -20,6 +22,8 @@ class Fixtures extends React.Component {
       favourites: [],
       month: currentMonth,
       stadium: null
+
+      month: currentMonth
       }
     }
 
@@ -58,7 +62,9 @@ class Fixtures extends React.Component {
     let fixtures = this.filterFixturesByMonth(this.props.fixtures, this.state.month);
     return (
       <div>
+
         <MapContainer locations={this.props.locations} stadium={this.state.stadium}/>
+
         <DropDown handleSelectChange={this.changeMonth}></DropDown>
         {fixtures.map((fixture, index) => {
           return (

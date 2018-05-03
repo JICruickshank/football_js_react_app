@@ -1,0 +1,32 @@
+.fixtures li {
+  color: white;
+  display: inline-block;
+  list-style-type: none;
+  text-decoration: none;
+  margin: 8px 10px 0 10px;
+  text-shadow: 1px 1px 1px rgb(0, 0, 0);
+}
+
+
+.fixtures {
+  margin-left: 30px;
+  display: inline-block;
+}
+
+.fixli1 {
+  width: 150px;
+}
+
+.fixli2 {
+  width: 200px;
+  text-align: right;
+}
+
+.fixli4 {
+  width: 300px;
+}
+
+.fixli-button5 {
+  width: 100px;
+  float: right;
+}

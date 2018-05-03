@@ -1,0 +1,21 @@
+.line1, .line2, .line3 {
+  padding: 0;
+}
+
+.line1 {
+  margin: 175px 0 0 250px;
+  font-size: 78px;
+  text-shadow: 2px 2px 6px rgb(0, 0, 0);
+}
+
+.line2 {
+  margin: 0 0 0 350px;
+  font-size: 62px;
+  text-shadow: 2px 2px 6px rgb(0, 0, 0);
+}
+
+.line3 {
+  margin: 10px 0 0 450px;
+  font-size: 46px;
+  text-shadow: 2px 2px 6px rgb(0, 0, 0);
+}
