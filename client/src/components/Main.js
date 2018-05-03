@@ -11,8 +11,6 @@ class Main extends React.Component {
   constructor(props){
     super(props);
 
-    this.addFavourite = this.addFavourite.bind(this);
-
     this.state = {
       league: [],
       fixtures: [],
@@ -52,17 +50,7 @@ class Main extends React.Component {
       .then(response => response.json())
       .then(json => this.setState({fixtures: json.fixtures}))
 
-    fetch("http://localhost:3001/api/favourites")
-      .then(response => response.json())
-      .then(json => {this.setState({favourites: json})})
   }
-
-  addFavourite = function() {
-    fetch("http://localhost:3001/api/favourites")
-      .then(response => response.json())
-      .then(json => {this.setState({favourites: json})})
-  }
-
 
   render() {
     return (
@@ -74,7 +62,7 @@ class Main extends React.Component {
           <LeagueTable teams={this.state.league}/>
         )}}/>
         <Route path='/fixtures' render={() => {return(
-          <Fixtures fixtures={this.state.fixtures} locations={this.state.locations} favourites={this.state.favourites} action={this.addFavourite} />
+          <Fixtures fixtures={this.state.fixtures} locations={this.state.locations} favourites={this.state.favourites}  />
         )}}/>
         <Route path='/favourites' render={() => {return(
           <Favourites favourites={this.state.favourites} locations={this.state.locations}/>

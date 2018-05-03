@@ -1,28 +1,29 @@
 import React from "react";
 
-
-
 const Fixture = (props) => {
 
-  const addToFavourites = function(){
-    let date = new Date(props.date);
+  const addToFavourites = function() {
+  //   fetch("//localhost:3001/api/favourites", {headers: {"Content-Type": "application/json"}}, {body: JSON.stringify(favouriteToAdd)})
+  //   .then(response => response.json())
+  //   .then(favouriteToAdd => console.log(favouriteToAdd))
+  // }
+  let date = new Date(props.date);
     const stringDate = date.toDateString();
     const favouriteToAdd= {
       date:stringDate,
       homeTeam:props.homeTeam,
       awayTeam:props.awayTeam
     }
-    console.log("button working");
-    const request = new XMLHttpRequest();
-    request.open("POST", "//localhost:3001/api/favourites");
-    request.setRequestHeader("Content-Type", "application/json");
-    request.addEventListener('load', function(){
-      if(this.status !== 201){
-        return;
-      }
-    })
-    request.send(JSON.stringify(favouriteToAdd));
-  };
+  const request = new XMLHttpRequest();
+  request.open("POST", "//localhost:3001/api/favourites");
+  request.setRequestHeader("Content-Type", "application/json");
+  request.addEventListener('load', function(){
+   if(this.status !== 201){
+    return;
+   }
+  })
+  request.send(JSON.stringify(favouriteToAdd));
+ };
 
   // pass home team to fixtures getStadium method
   const findStadium = function() {
