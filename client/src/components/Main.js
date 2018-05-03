@@ -57,7 +57,7 @@ class Main extends React.Component {
       .then(json => {this.setState({favourites: json})})
   }
 
-  addFavourite = function() {
+  addFavourite() {
     fetch("http://localhost:3001/api/favourites")
       .then(response => response.json())
       .then(json => {this.setState({favourites: json})})
